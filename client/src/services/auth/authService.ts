@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const URL='localhost:4000/api/auth';
+const URL='localhost:4002/api/auth';
 
 const headers = {
     'Content-Type': 'application/json',
