@@ -17,6 +17,7 @@ this projects contains bunch of subjects of a fullstack application:
 
 
 todo: create this npm start of all services together in one command
+todo: logger service & DB
 
 ## how to build the project 
 
