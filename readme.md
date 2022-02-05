@@ -1,22 +1,18 @@
-import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-import './App.css';
-import { index } from './pages/index';
-import { signup } from './pages/auth/signup';
-import { signin } from './pages/auth/signin';
+## TLDR
 
-function App() {
-  return (
-    <>
-      <BrowserRouter>
-        <Switch>
-          <Route path='/' exact component={index} ></Route>
-          <Route path='/auth/signup' component={signup} ></Route>
-          <Route path='/auth/signin' component={signin}></Route>
-        </Switch >
-      </BrowserRouter >
-    </>
-  );
-}
+## how to run the project (on localhost!)
 
-export default App;
+1. docker build - run the command: `docker run --name mongoDB -p 27017:27017 -d mongo:latest`
+
+2. go to auth directory (`cd auth`) => run: `npm start`
+
+3. go to missions directory (`cd missions`) => run: `npm start`
+
+4. go to client directory (`cd missions`) => run: `npm start`
+
+
+todo: create this npm start of all services together in one command
+
+## how to build the project 
+
+TBD
