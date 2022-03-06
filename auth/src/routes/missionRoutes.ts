@@ -8,7 +8,7 @@ import { validateRequest } from "../middlewares/validateRequest";
 dotenv.config();
 const router = express.Router();
 
-router.post('/api/mission',[
+router.post('/api/missions',[
     body('key')
     .notEmpty()
     .withMessage('key was not provided'),
@@ -20,18 +20,20 @@ router.post('/api/mission',[
         const newMission = await createMission(req.body)
         res.status(201).send(newMission);
     }catch(err){
-        res.status(400).send(err);
+        res.status(400).send('1');
     }
 })
-router.get('/api/mission', requireAuth, async (req: Request, res:Response) => {
+router.get('/api/missions', requireAuth, async (req: Request, res:Response) => {
     try{
+        console.log('trysss');
+        
         const missions = await getMissions()
         res.status(200).send(missions);
     }catch(err){
         res.status(400).send(err);
     }
 })
-router.put ('/api/mission/:id', requireAuth, async (req: Request, res:Response) => {
+router.put ('/api/missions/:id', requireAuth, async (req: Request, res:Response) => {
     try{
         const missionId = req.params.id;
         if (!missionId){
@@ -43,7 +45,7 @@ router.put ('/api/mission/:id', requireAuth, async (req: Request, res:Response) 
         res.status(400).send(err);
     }
 })
-router.delete ('/api/mission/:id', requireAuth, async (req: Request, res:Response) => {
+router.delete ('/api/missions/:id', requireAuth, async (req: Request, res:Response) => {
     try{
         const missionId = req.params.id;
         if (!missionId){

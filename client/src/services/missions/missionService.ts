@@ -1,10 +1,30 @@
 import axios from 'axios';
 import {Mission} from '../../types/types'
 
-const URL='localhost:4001/api/mission';
+const URL='/api/missions';
+const token = localStorage.getItem('token') || '';
+const config = {
+    headers: {
+       Authorization: token 
+    }
+};
 
 const getMissions = async () => {
-    return await axios.post(`${URL}`)
+    try{
+        const res = await axios.get(`${URL}`, config)
+        return {
+            data: res.data,
+            status: 'success',
+            error: null,
+        }
+    }
+    catch(e){
+        return{
+            data: null,
+            status: 'failed',
+            error: e,
+        }
+    }
 }
 const createMissions = async (newMission:Mission) => {
     return await axios.post(`${URL}`, newMission)

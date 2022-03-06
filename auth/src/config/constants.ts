@@ -1,1 +1,1 @@
-export const URL = 'localhost:4001/missions';
+export const URL = 'http://localhost:4001/api/missions';

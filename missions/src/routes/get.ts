@@ -5,6 +5,8 @@ const router = express.Router();
 
 router.get('/api/missions', async (req: Request, res:Response) => {
     try{
+        console.log('db');
+        
         const missions = await Mission.find({});
         res.status(200).send(missions);
     }

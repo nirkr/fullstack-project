@@ -15,7 +15,8 @@ router.post('/api/auth/signup',cors(),[
     .notEmpty()
     .withMessage('password is required'),
 ],validateRequest,async (req: Request, res:Response) => {
-
+        console.log('server is on');
+        
     const { userName, password} = req.body;
     const jwtUser = await signUpService (userName, password);
     res.status(201).json({

@@ -13,7 +13,13 @@ const createMission = async (newMission: Mission) => {
     return await axios.post(URL, newMission)
 }
 const getMissions = async () => {
-    return await axios.get(URL)
+    console.log({URL});
+    try{
+        const missions = await axios.get(URL);
+        return missions;
+    }    
+    catch(e){ console.log(e);
+    }    
 }
 const updateMission = async (missionId: string, dataToUpdate:Mission) => {
     return await axios.put(`${URL}/:${missionId}`, dataToUpdate)
